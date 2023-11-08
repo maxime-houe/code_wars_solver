@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  tests:
+    image: code_wars_gpt:tests
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: tests
+    volumes:
+      - ./app:/code_wars_gpt/app
+      - ./tests:/code_wars_gpt/tests
+      - ./reports:/code_wars_gpt/reports
+    environment:
+      - STAGE=tests
+      

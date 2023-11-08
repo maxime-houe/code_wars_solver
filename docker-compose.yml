@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  main:
+    image: code_wars_gpt:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: local
+      args:
+        - STAGE=local
+    volumes:
+      - ./app:/code_wars_gpt/app
+    environment:
+      - STAGE=local
+    ports:
+      - "8000:8000"
+    env_file:
+      - local.env

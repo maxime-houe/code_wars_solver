@@ -1,0 +1,14 @@
+version: 2
+
+registries:
+  wefight-devs:
+    type: git
+    url: https://github.com
+    username: x-access-token
+    password: ${{ secrets.PACKAGES_GITHUB_TOKEN }}
+updates:
+  - package-ecosystem: "pip"
+    insecure-external-code-execution: allow
+    directory: "/"
+    schedule:
+      interval: "weekly"
