@@ -1,0 +1,88 @@
+name: On pull request commit
+
+on:
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+#  test:
+#    runs-on: self-hosted
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#
+#      - name: "Set up docker"
+#        uses: docker/setup-buildx-action@v2
+#
+#      - name: "Build docker with cache"
+#        uses: docker/build-push-action@v4
+#        with:
+#          context: .
+#          file: ./Dockerfile
+#          push: false
+#          load: true
+#          target: tests
+#          tags: astrolo:tests
+#          cache-from: type=gha
+#          cache-to: type=gha,mode=max
+#          build-args: |
+#            PACKAGES_GITHUB_TOKEN=${{ secrets.PACKAGES_GITHUB_TOKEN }}
+#
+#      - name: "Run docker compose tests with cache"
+#        run: docker-compose --file docker-compose.tests.yml up --no-build --abort-on-container-exit
+
+
+  code-style-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: "Set up python and pip"
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: "Install black"
+        run: |
+          pip install --upgrade pip
+          pip install black
+
+      - name: "Black linter check"
+        run: |
+          black --check .
+
+#  semantic-release:
+#    runs-on: ubuntu-latest
+#    defaults:
+#      run:
+#        working-directory: .
+#
+#    env:
+#      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#          persist-credentials: false
+#
+#      - name: github.head_ref
+#        run: echo ${{ github.head_ref }}
+#
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: 20
+#          registry-url: "https://npm.pkg.github.com"
+#
+#      - name: npm install semantic-release
+#        run: |
+#          npm install semantic-release @semantic-release/exec @semantic-release/git @semantic-release/github @semantic-release/changelog
+#
+#      # Generate semver
+#      - name: Semantic Release dry run
+#        run: GITHUB_EVENT_NAME="push" GITHUB_REF=${{ github.head_ref }} npx semantic-release --dry-run --branches ${{ github.head_ref }}
