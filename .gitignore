@@ -2,6 +2,7 @@
 .env
 reports
 volumes
+scripts/maintenance*.py
 
 ### SublimeText template
 # Cache files for Sublime Text
