@@ -1,4 +1,4 @@
-from time import sleep
+from time import sleep, time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -66,8 +66,8 @@ class KataTraining:
         kata_description = self.browser.find_element(By.ID, "description").text
         print(
             f"""----------------
-        Found the kata description: 
-        {kata_description}"""
+Found the kata description: 
+{kata_description}"""
         )
 
         code_tag = self.browser.find_element(By.ID, "code")
@@ -75,8 +75,8 @@ class KataTraining:
         initial_code = "\n".join([tag.text for tag in pre_code if tag.text])
         print(
             f"""----------------
-        Found the initial code:
-         {initial_code}"""
+Found the initial code:
+{initial_code}"""
         )
 
         solution = solve_kata(
@@ -86,28 +86,35 @@ class KataTraining:
         )
         print(
             f"""----------------
-        Found the solution: 
-        {solution}"""
+Found the solution: 
+{solution}"""
         )
         return solution
 
     def are_tests_successful(self) -> bool:
-        # TODO: Can sleep and check the results at the same time
-
-        sleep(self.TEST_TIMEOUT)  # The tests timeout is 12 seconds
-
         iframe = self.browser.find_element(By.TAG_NAME, "iframe")
         self.browser.switch_to.frame(iframe)
-        results = self.browser.find_element(By.CLASS_NAME, "run-results")
-        success = self.PASSED_ALL_THE_TESTS in results.text.split("\n")
+        success = None
+        t = time()
+
+        while success is None and time() - t < self.TEST_TIMEOUT:
+            try:
+                results = self.browser.find_element(By.CLASS_NAME, "run-results")
+                success = self.PASSED_ALL_THE_TESTS in results.text.split("\n")
+            except:
+                pass
+
         self.browser.switch_to.default_content()
+
+        if success is None:
+            success = False
+
         return success
 
-    def submit(self):
-        self.browser.find_element(By.ID, "submit_btn").click()
-        print("Submitting...")
-
-    def process_kata(self):
+    def solve_kata(self) -> bool:
+        """
+        Solves a kata, return True if the kata was solved, False otherwise
+        """
         solution = self.find_solution()
         self.send_solution(solution=solution)
         self.click_button_for_action(button_id=TestButton.testing)
@@ -116,7 +123,12 @@ class KataTraining:
             self.click_button_for_action(button_id=TestButton.attempting)
             if self.are_tests_successful():
                 print("All checks passed!")
+                sleep(1)
                 self.click_button_for_action(button_id=TestButton.submitting)
+                print("Submitted!")
+                return True
+
+        return False
 
 
 if __name__ == "__main__":
@@ -133,12 +145,20 @@ if __name__ == "__main__":
             difficulty=difficulty,
         )
         print(f"{len(kata_ids)} katas found!")
-        kata_training = KataTraining(
-            browser=browser, kata_id=kata_ids[0], language=language
-        )
-        kata_training.process_kata()
+        for kata_id in kata_ids:
+            kata_training = KataTraining(
+                browser=browser, kata_id=kata_id, language=language
+            )
+            success = kata_training.solve_kata()
+            if success:
+                print(f"Kata {kata_id} solved!")
+            else:
+                print(f"Kata {kata_id} not solved!")
+
+            sleep(1)
+
     except Exception as e:
         print(e)
 
-    sleep(15)
+    sleep(30)
     browser.quit()
