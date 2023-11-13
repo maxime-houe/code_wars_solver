@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 from chains import solve_kata_first_try, solve_kata_with_error_context
-from models import ProgrammingLanguage, Button
+from models import ProgrammingLanguage, Button, CodeWarsProgress
 
 
 class KataTrainer:
@@ -140,7 +140,10 @@ Found the errors:
         errors = self.retrieve_errors()
         return self.solve_kata(errors=errors)
 
-    def process_kata(self):
+    def process_kata(self, progress: CodeWarsProgress):
+        if progress == CodeWarsProgress.unfinished:
+            self.reset_kata_solution()
+
         success = self.solve_kata()
         if success:
             print(f"Kata {self.kata_id} solved at first try!")
@@ -156,6 +159,7 @@ Found the errors:
             sleep(5)
 
     def reset_kata_solution(self):
+        sleep(1)
         self.click_button_for_action(button_id=Button.resetting)
         confirm_element = self.browser.find_element(By.CLASS_NAME, "confirm")
         confirm_element.find_element(By.TAG_NAME, "a").click()

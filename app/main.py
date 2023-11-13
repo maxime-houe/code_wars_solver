@@ -15,14 +15,16 @@ if __name__ == "__main__":
     browser = webdriver.Firefox()
     language = ProgrammingLanguage.python
     difficulties = [CodeWarsDifficulty.eight_kyu, CodeWarsDifficulty.seven_kyu]
+    progress = CodeWarsProgress.unfinished
 
+    browser.maximize_window()
     login_code_wars(browser)
     print("Logged in!")
     kata_ids = list_kata_ids(
         browser=browser,
         language=language,
         difficulties=difficulties,
-        progress=CodeWarsProgress.not_trained,
+        progress=progress,
     )
     print(f"{len(kata_ids)} katas found!")
     for index, kata_id in enumerate(kata_ids):
@@ -33,12 +35,11 @@ if __name__ == "__main__":
             kata_trainer = KataTrainer(
                 browser=browser, kata_id=kata_id, language=language
             )
-            # kata_trainer.reset_kata_solution()
-            kata_trainer.process_kata()
+            kata_trainer.process_kata(progress=progress)
         except Exception as e:
             print(e)
+            sleep(10)
 
         sleep(1)
 
-    sleep(30)
     browser.quit()

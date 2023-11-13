@@ -5,7 +5,7 @@ from utils import gpt_35
 
 prompt_template = """You are a developer expert in solving kata (simple programming problem) on codewars.
 You are receiving the description of a kata, the programming language, the previous code and the errors generated.
-Your goal is to solve the problem by fixing the code provided.
+Your goal is to solve the problem by fixing the code provided. You have to change the provided code one way or another.
 
 !!!IMPORTANT!!!
 - YOU KEEP THE SAME FUNCTION OR CLASS AND PARAMETERS DEFINED IN THE PROVIDED CODE.
