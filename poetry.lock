@@ -937,13 +937,13 @@ reference = "pypi_"
 
 [[package]]
 name = "langchain"
-version = "0.0.332"
+version = "0.0.335"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = ">=3.8.1,<4.0"
 files = [
-    {file = "langchain-0.0.332-py3-none-any.whl", hash = "sha256:4cbf183b8a385483907192efea2f55d34c0f0c441b0a02f41af1eeec4526677c"},
-    {file = "langchain-0.0.332.tar.gz", hash = "sha256:8356b6c0073680d66d5ee2d9e54c23c90198ee74ab2431a0256934a69a511c1f"},
+    {file = "langchain-0.0.335-py3-none-any.whl", hash = "sha256:f74c98366070a46953c071c69f6c01671a9437569c08406cace256ccaabdfcaf"},
+    {file = "langchain-0.0.335.tar.gz", hash = "sha256:93136fe6cc9ac06a80ccf7cf581e58af5cfcc31fef1083b30165df9a9bc53f5d"},
 ]
 
 [package.dependencies]
@@ -951,7 +951,7 @@ aiohttp = ">=3.8.3,<4.0.0"
 anyio = "<4.0"
 dataclasses-json = ">=0.5.7,<0.7"
 jsonpatch = ">=1.33,<2.0"
-langsmith = ">=0.0.52,<0.1.0"
+langsmith = ">=0.0.63,<0.1.0"
 numpy = ">=1,<2"
 pydantic = ">=1,<3"
 PyYAML = ">=5.3"
@@ -2225,4 +2225,4 @@ reference = "pypi_"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "deefa7b89992364a5aaf8a481d0914c439c2d6736c6bdebbb85dd3d5b4be0857"
+content-hash = "717da177d5d4b4b68d80f920a9fe899dadd33e90ebf653ded02b118297f6c919"
