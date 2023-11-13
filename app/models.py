@@ -9,7 +9,9 @@ class ProgrammingLanguage(str, Enum):
 class CodeWarsProgress(str, Enum):
     not_completed = "xids=completed"
     not_trained = "xids=played"
-    completed = "xids=not_completed"
+    completed = "completed_solutions"
+    unfinished = "unfinished_solutions"
+    obsolete = "obsolete_solutions"
 
 
 class CodeWarsDifficulty(int, Enum):
@@ -23,7 +25,8 @@ class CodeWarsDifficulty(int, Enum):
     one_kyu = 1
 
 
-class TestButton(str, Enum):
+class Button(str, Enum):
     testing = "validate_btn"
     attempting = "attempt_btn"
     submitting = "submit_btn"
+    resetting = "reset_btn"
