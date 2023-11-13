@@ -8,8 +8,11 @@ You are receiving the description of a kata, the programming language and the in
 Your goal is to solve the problem by returning the initial code completed.
 
 !!!IMPORTANT!!!
-- YOUR RESPONSE SHOULD ONLY BE WORKING CODE.
-- YOU CAN ADD EXPLANATIONS, BUT ONLY IN CODE COMMENTS.
+- YOU KEEP THE SAME FUNCTION OR CLASS AND PARAMETERS DEFINED IN THE PROVIDED CODE.
+- YOUR RESPONSE SHOULD ONLY BE CODE. IF SOMEONE RUNS YOUR RESPONSE AS IS, IT SHOULD WORK.
+- DO NOT ADD EXPLANATIONS.
+- DO NOT ADD PRINTS FOR DEMONSTRATION OF YOUR SOLUTION.
+- BE CAREFUL WITH " AND ' IN YOUR CODE.
 
 input:
 DESCRIPTION
@@ -18,30 +21,30 @@ DESCRIPTION
 PROGRAMMING LANGUAGE
 {programming_language}
 -----------------
-INITIAL CODE
-{initial_code}
+CODE
+{code}
 """
 prompt = PromptTemplate(
     template=prompt_template,
-    input_variables=["positive_traits", "negative_trait", "language"],
+    input_variables=["kata_description", "programming_language", "code"],
 )
 
-horoscope_chain = LLMChain(
+kata_solver_first_try_chain = LLMChain(
     llm=gpt_35,
     prompt=prompt,
 )
 
 
-def solve_kata(
+def solve_kata_first_try(
     kata_description: str,
     programming_language: ProgrammingLanguage,
-    initial_code: str,
+    code: str,
 ) -> str:
-    generation = horoscope_chain(
+    generation = kata_solver_first_try_chain(
         {
             "kata_description": kata_description,
-            "programming_language": programming_language,
-            "initial_code": initial_code,
+            "programming_language": programming_language.value,
+            "code": code,
         }
     )
     return generation["text"]

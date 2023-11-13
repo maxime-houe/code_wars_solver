@@ -1,1 +1,2 @@
-from .kata_solver import solve_kata
+from .kata_solver_first_try import solve_kata_first_try
+from .kata_solver_with_error_context import solve_kata_with_error_context
