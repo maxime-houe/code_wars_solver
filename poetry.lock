@@ -1169,13 +1169,13 @@ reference = "pypi_"
 
 [[package]]
 name = "openai"
-version = "1.2.2"
-description = "Client library for the openai API"
+version = "1.2.3"
+description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.2.2-py3-none-any.whl", hash = "sha256:e9238e506b8ee8fc00af5b656de7907986317d7cfcf581964ff6e54a449be727"},
-    {file = "openai-1.2.2.tar.gz", hash = "sha256:cbeff4eaf6cdcdccb24c9190d9880a827c034b221ed996201c10d578850b3db8"},
+    {file = "openai-1.2.3-py3-none-any.whl", hash = "sha256:d8d1221d777c3b2d12468f17410bf929ca0cb06e9556586e61f5a4255f0cf2b4"},
+    {file = "openai-1.2.3.tar.gz", hash = "sha256:800d206ec02c8310400f07b3bb52e158751f3a419e75d080117d913f358bf0d5"},
 ]
 
 [package.dependencies]
@@ -2225,4 +2225,4 @@ reference = "pypi_"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "717da177d5d4b4b68d80f920a9fe899dadd33e90ebf653ded02b118297f6c919"
+content-hash = "2c02f7335189eee7ecef541caa5b36f5d525b33b87899bb8294dc54906687a13"
