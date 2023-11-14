@@ -1,11 +1,11 @@
 from langchain import LLMChain, PromptTemplate
 
-from models import ProgrammingLanguage
+from kata.models import ProgrammingLanguage
 from utils import gpt_35
 
 prompt_template = """You are a developer expert in solving kata (simple programming problem) on codewars.
-You are receiving the description of a kata, the programming language and the initial code.
-Your goal is to solve the problem by returning the initial code completed.
+You are receiving the description of a kata, the programming language, the previous code and the errors generated.
+Your goal is to solve the problem by fixing the code provided. You have to change the provided code one way or another.
 
 !!!IMPORTANT!!!
 - YOU KEEP THE SAME FUNCTION OR CLASS AND PARAMETERS DEFINED IN THE PROVIDED CODE.
@@ -23,28 +23,33 @@ PROGRAMMING LANGUAGE
 -----------------
 CODE
 {code}
+-----------------
+ERRORS
+{errors}
 """
 prompt = PromptTemplate(
     template=prompt_template,
-    input_variables=["kata_description", "programming_language", "code"],
+    input_variables=["kata_description", "programming_language", "code", "errors"],
 )
 
-kata_solver_first_try_chain = LLMChain(
+kata_solver_with_error_context = LLMChain(
     llm=gpt_35,
     prompt=prompt,
 )
 
 
-def solve_kata_first_try(
+def solve_kata_with_error_context(
     kata_description: str,
     programming_language: ProgrammingLanguage,
     code: str,
+    errors: str,
 ) -> str:
-    generation = kata_solver_first_try_chain(
+    generation = kata_solver_with_error_context(
         {
             "kata_description": kata_description,
             "programming_language": programming_language.value,
             "code": code,
+            "errors": errors,
         }
     )
     return generation["text"]

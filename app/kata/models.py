@@ -4,14 +4,23 @@ from enum import Enum
 class ProgrammingLanguage(str, Enum):
     python = "python"
     rust = "rust"
+    javascript = "javascript"
 
 
-class CodeWarsProgress(str, Enum):
+class CodeWarsProgressValue(str, Enum):
     not_completed = "xids=completed"
     not_trained = "xids=played"
     completed = "completed_solutions"
     unfinished = "unfinished_solutions"
     obsolete = "obsolete_solutions"
+
+
+class CodeWarsProgressAliases(str, Enum):
+    not_completed = "not_completed"
+    not_trained = "not_trained"
+    completed = "completed"
+    unfinished = "unfinished"
+    obsolete = "obsolete"
 
 
 class CodeWarsDifficulty(int, Enum):
