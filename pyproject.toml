@@ -13,12 +13,13 @@ url = 'https://pypi.org/simple'
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.104.1"
-pydantic = "^2.4.2"
-selenium = "^4.15.2"
-pydantic-settings = "^2.0.3"
 langchain = "^0.0.335"
 openai = "^1.2.3"
+pydantic = "^2.4.2"
+pydantic-settings = "^2.0.3"
+selenium = "^4.15.2"
 tiktoken = "^0.5.1"
+uvicorn = "^0.23.2"
 
 
 [tool.poetry.group.tests]

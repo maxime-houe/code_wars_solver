@@ -1,45 +1,29 @@
-from time import sleep
+from fastapi import FastAPI
 
-from selenium import webdriver
+from config import get_settings, get_browser
+from kata import kata_router
+from user import user_router, login, logout
 
-from config import load_local_variables
+app = FastAPI(title=get_settings().project_name, version=get_settings().version)
+app.include_router(kata_router)
+app.include_router(user_router)
 
-load_local_variables()
+
+@app.on_event("startup")
+async def startup():
+    get_browser().maximize_window()
+    await login()
+    print("Starting up")
 
 
-if __name__ == "__main__":
-    from kata_trainer import KataTrainer
-    from methods import list_kata_ids, login_code_wars
-    from models import ProgrammingLanguage, CodeWarsDifficulty, CodeWarsProgress
+@app.on_event("shutdown")
+async def shutdown():
+    print("▶️ Shutdown...")
+    await logout()
+    get_browser().quit()
+    print("✅ Shutdown OK")
 
-    browser = webdriver.Firefox()
-    language = ProgrammingLanguage.python
-    difficulties = [CodeWarsDifficulty.eight_kyu, CodeWarsDifficulty.seven_kyu]
-    progress = CodeWarsProgress.unfinished
 
-    browser.maximize_window()
-    login_code_wars(browser)
-    print("Logged in!")
-    kata_ids = list_kata_ids(
-        browser=browser,
-        language=language,
-        difficulties=difficulties,
-        progress=progress,
-    )
-    print(f"{len(kata_ids)} katas found!")
-    for index, kata_id in enumerate(kata_ids):
-        try:
-            print(
-                f"Processing kata {index}/{len(kata_ids)} {kata_id} for {language.value}..."
-            )
-            kata_trainer = KataTrainer(
-                browser=browser, kata_id=kata_id, language=language
-            )
-            kata_trainer.process_kata(progress=progress)
-        except Exception as e:
-            print(e)
-            sleep(10)
-
-        sleep(1)
-
-    browser.quit()
+@app.get("/health", status_code=200)
+async def health():
+    return {"status": "ok"}
