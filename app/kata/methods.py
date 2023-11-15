@@ -1,4 +1,5 @@
 from time import sleep, time
+import logging
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -30,11 +31,11 @@ class KataTrainer:
         )
         self.description = get_browser().find_element(By.ID, "description").text
 
-    #         print(
-    #             f"""----------------
-    # Found the kata description:
-    # {self.description}"""
-    #         )
+        logging.debug(
+            f"""----------------
+Found the kata description:
+{self.description}"""
+        )
 
     @staticmethod
     def send_solution(solution: str):
@@ -50,18 +51,18 @@ class KataTrainer:
     @staticmethod
     def click_button_for_action(button_id: Button):
         get_browser().find_element(By.ID, button_id.value).click()
-        print(f"{button_id.name.capitalize()}...")
+        logging.info(f"{button_id.name.capitalize()}...")
 
     @staticmethod
     def parse_code() -> str:
         code_tag = get_browser().find_element(By.ID, "code")
         pre_code = code_tag.find_elements(By.TAG_NAME, "pre")
         code = "\n".join([tag.text for tag in pre_code if tag.text])
-        #         print(
-        #             f"""----------------
-        # Found the code:
-        # {code}"""
-        #         )
+        logging.debug(
+            f"""----------------
+Found the code:
+{code}"""
+        )
         return code
 
     def find_solution(self, errors: str) -> str:
@@ -82,11 +83,11 @@ class KataTrainer:
                 code=code,
             )
 
-        #         print(
-        #             f"""----------------
-        # Found the solution:
-        # {solution}"""
-        #         )
+        logging.debug(
+            f"""----------------
+Found the solution:
+{solution}"""
+        )
         self.solution = solution
         return solution
 
@@ -122,10 +123,10 @@ class KataTrainer:
         if self.are_tests_successful():
             self.click_button_for_action(button_id=Button.attempting)
             if self.are_tests_successful():
-                print("All checks passed!")
+                logging.info("All checks passed!")
                 sleep(1)
                 self.click_button_for_action(button_id=Button.submitting)
-                print("Submitted!")
+                logging.info("Submitted!")
                 self.is_solved = True
 
         return self.is_solved
@@ -137,7 +138,7 @@ class KataTrainer:
         results = get_browser().find_element(By.CLASS_NAME, "run-results")
         errors = results.text
         get_browser().switch_to.default_content()
-        print(
+        logging.debug(
             f"""----------------
 Found the errors:
 {errors}"""
@@ -154,15 +155,15 @@ Found the errors:
 
         success = self.solve_kata()
         if success:
-            print(f"Kata {self.kata_id} solved at first try!")
+            logging.info(f"Kata {self.kata_id} solved at first try!")
         else:
-            print(f"Kata {self.kata_id} not solved at first try!")
+            logging.info(f"Kata {self.kata_id} not solved at first try!")
             success = self.retry()
 
             if success:
-                print(f"Kata {self.kata_id} solved at second try!")
+                logging.info(f"Kata {self.kata_id} solved at second try!")
             else:
-                print(f"Kata {self.kata_id} not solved at second try!")
+                logging.info(f"Kata {self.kata_id} not solved at second try!")
 
             sleep(5)
 

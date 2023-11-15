@@ -47,9 +47,9 @@ def is_at_bottom(browser: webdriver.Remote) -> bool:
         "return Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );"
     )
     current_window_height = browser.execute_script("return window.innerHeight;")
-    print(f"Current scroll position: {current_scroll_position}")
-    print(f"Max scroll height: {max_scroll_height}")
-    print(f"Current window height: {current_window_height}")
+    logger.debug(f"Current scroll position: {current_scroll_position}")
+    logger.debug(f"Max scroll height: {max_scroll_height}")
+    logger.debug(f"Current window height: {current_window_height}")
 
     buffer = 10
 
