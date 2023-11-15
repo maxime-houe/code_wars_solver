@@ -1,6 +1,8 @@
+import logging
+
 from fastapi import FastAPI
 
-from config import get_settings, get_browser
+from config import get_settings, get_browser, configure_log
 from kata import kata_router
 from user import user_router, login, logout
 
@@ -11,17 +13,18 @@ app.include_router(user_router)
 
 @app.on_event("startup")
 async def startup():
+    configure_log()
     get_browser().maximize_window()
     await login()
-    print("Starting up")
+    logging.info("Starting up")
 
 
 @app.on_event("shutdown")
 async def shutdown():
-    print("▶️ Shutdown...")
+    logging.info("▶️ Shutdown...")
     await logout()
     get_browser().quit()
-    print("✅ Shutdown OK")
+    logging.info("✅ Shutdown OK")
 
 
 @app.get("/health", status_code=200)

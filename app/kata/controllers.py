@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Query
 from selenium.webdriver.common.by import By
 
@@ -28,7 +30,7 @@ async def solve_one_kata(
         description="Whether to reset the solution before solving the kata",
     ),
 ) -> bool:
-    print(
+    logging.info(
         f"▶️ Solving kata..."
         f" | kata_id: {kata_id}"
         f" | language: {language.value}"
@@ -36,7 +38,7 @@ async def solve_one_kata(
     )
     kata_trainer = KataTrainer(kata_id=kata_id, language=language)
     kata_trainer.process_kata(should_reset_solution=should_reset_solution)
-    print(f"✅ Kata solved: {kata_trainer.is_solved}")
+    logging.info(f"✅ Kata solved: {kata_trainer.is_solved}")
     return kata_trainer.is_solved
 
 
@@ -63,7 +65,7 @@ async def solve_many_katas(
         description="Whether to reset the solution before solving the kata",
     ),
 ) -> list[bool]:
-    print(
+    logging.info(
         f"▶️ Solving katas..."
         f" | language: {language.value}"
         f" | difficulties: {printify_difficulties(difficulties)}"
@@ -78,7 +80,7 @@ async def solve_many_katas(
     )
     kata_results = []
     for index, kata_id in enumerate(kata_ids):
-        print(f"Processing kata {index}/{len(kata_ids)} {kata_id}...")
+        logging.info(f"Processing kata {index}/{len(kata_ids)} {kata_id}...")
         try:
             kata_results.append(
                 await solve_one_kata(
@@ -88,11 +90,11 @@ async def solve_many_katas(
                 )
             )
         except Exception as e:
-            print(e)
+            logging.info(e)
             kata_results.append(False)
 
     kata_solved_number = sum(kata_results)
-    print(f"✅ Kata solved: {kata_solved_number}/{len(kata_results)}")
+    logging.info(f"✅ Kata solved: {kata_solved_number}/{len(kata_results)}")
     return kata_results
 
 
@@ -114,7 +116,7 @@ async def get_kata_ids(
         description="Progress of the kata",
     ),
 ) -> list[str]:
-    print(
+    logging.info(
         f"▶️ Getting kata ids..."
         f" | language: {language.value}"
         f" | difficulties: {printify_difficulties(difficulties)}"
@@ -161,5 +163,5 @@ async def get_kata_ids(
         katas = browser.find_elements(By.CLASS_NAME, "list-item-kata")
         kata_ids = [kata.get_attribute("id") for kata in katas]
 
-    print(f"✅ Kata ids found: {len(kata_ids)}")
+    logging.info(f"✅ Kata ids found: {len(kata_ids)}")
     return kata_ids

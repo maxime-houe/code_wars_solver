@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -15,7 +17,7 @@ async def login():
     browser.find_element(By.ID, "user_password").send_keys(get_settings().password)
     buttons = browser.find_elements(By.TAG_NAME, "button")
     buttons[-1].click()
-    print("Logged in!")
+    logging.info("Logged in!")
     return {"status": "Logged in!"}
 
 

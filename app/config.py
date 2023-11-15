@@ -1,11 +1,24 @@
 import os
-from enum import Enum
-
 from functools import lru_cache
+import logging.config
 
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
 from selenium import webdriver
+
+
+def configure_log():
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s [%(levelname)s] - %(message)s",
+        handlers=[
+            logging.StreamHandler()  # Add a stream handler to log to the console
+        ],
+    )
+    # # remove every other logger's handlers
+    for name in logging.root.manager.loggerDict.keys():
+        logging.getLogger(name).setLevel(logging.WARNING)
+        logging.getLogger(name).propagate = True
 
 
 def load_local_variables():
