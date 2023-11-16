@@ -5,6 +5,7 @@ import logging.config
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 
 def configure_log():
@@ -41,6 +42,7 @@ class Settings(BaseSettings):
     location: str = "local"
     environment: str = f"{stage}-{location}"
     code_wars_url: str = "https://www.codewars.com"
+    headless_browser: str = "false"
 
     # Credentials CodeWars
     email: str
@@ -58,4 +60,7 @@ def get_settings():
 
 @lru_cache()
 def get_browser() -> webdriver.Remote:
-    return webdriver.Firefox()
+    options = Options()
+    if get_settings().headless_browser == "true":
+        options.add_argument("--headless")
+    return webdriver.Firefox(options=options)
