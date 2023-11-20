@@ -1,4 +1,4 @@
-FROM amd64/ubuntu:latest AS build-browser
+FROM amd64/ubuntu:latest
 
 # Install essential packages
 RUN apt-get update && \
@@ -18,7 +18,7 @@ RUN apt-get update && \
     libasound2
 
 # install geckodriver and firefox
-#TODO: retrieve the latest version automatically (next line does not work)
+#TODO: retrieve the latest version automatically (next commented line does not work)
 # RUN GECKODRIVER_VERSION=`curl https://github.com/mozilla/geckodriver/releases/latest | grep -Po 'v[0-9]+.[0-9]+.[0-9]+'`
 ENV GECKODRIVER_VERSION="v0.33.0"
 RUN echo $GECKODRIVER_VERSION
@@ -34,9 +34,7 @@ RUN FIREFOX_SETUP=firefox-setup.tar.bz2 && \
     ln -s /opt/firefox/firefox /usr/bin/firefox && \
     rm $FIREFOX_SETUP
 
-RUN firefox --version
 
-#FROM ubuntu:latest AS build-python-main
 ENV PYTHON_VERSION=3.11
 ENV POETRY_VERSION=1.6.0
 ENV VIRTUAL_ENV=/venv
@@ -63,38 +61,17 @@ RUN pip install "poetry==$POETRY_VERSION"
 RUN python -m venv --copies $VIRTUAL_ENV
 
 # Take requirements and install them
-COPY pyproject.toml poetry.lock ./
-RUN poetry install --no-interaction --no-ansi --only main
+COPY pyproject.toml ./
+COPY poetry.lock ./
+RUN poetry install --no-interaction --no-ansi
+
+
 SHELL ["/bin/bash", "-c"]
 RUN pip install --upgrade setuptools
-
-#FROM --platform=linux/amd64 python:3.11-slim-bullseye AS runtime
-#COPY --from=build-python-main /venv /venv
 COPY ./app /code_wars_gpt/app
 COPY ./pyproject.toml /code_wars_gpt
+COPY ./tests /code_wars_gpt/tests
 WORKDIR /code_wars_gpt/app
 
-
-#FROM runtime AS main
+RUN pytest --version
 CMD uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-
-
-#TODO: use the multi-stage dockerfile to build the tests and local images
-#FROM build-python-main AS build-python-tests
-#RUN poetry install --no-interaction --no-ansi --with tests
-#
-#
-#FROM runtime AS tests
-#COPY --from=build-python-tests /venv /venv
-#COPY ./tests /code_wars_gpt/tests
-#WORKDIR /code_wars_gpt
-#CMD pytest -v --junitxml=reports/results.xml --cov-report=xml:reports/coverage.xml --cov=.
-#
-#
-#FROM build-python-main AS build-python-local
-#RUN poetry install --no-interaction --no-ansi --with local,tests
-#
-#
-#FROM runtime AS local
-#COPY --from=build-python-local /venv /venv
-#CMD uvicorn main:app --host 0.0.0.0 --port 8000 --reload
