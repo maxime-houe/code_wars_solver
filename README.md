@@ -41,3 +41,12 @@ docker-compose up main
 If you are using Jetbrains, you can instead run the command in the configuration panel.
 
 4. Enjoy the [swagger](http://localhost:8000/docs).
+
+## Contributors
+Run the following command to link the pre-commit hook to your local git repository:
+```bash
+ln -s ../../hooks/pre-commit .git/hooks/pre-commit
+ln -s ../../hooks/pre-push .git/hooks/pre-push
+chmod +x .git/hooks/pre-commit
+chmod +x .git/hooks/pre-push
+```

@@ -8,7 +8,7 @@
             <option value="tests" />
           </list>
         </option>
-        <option name="sourceFilePath" value="docker-compose.tests.yaml" />
+        <option name="sourceFilePath" value="docker-compose.tests.yml" />
       </settings>
     </deployment>
     <method v="2" />
