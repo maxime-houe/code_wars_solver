@@ -1,3 +1,5 @@
+import logging
+
 from time import sleep
 
 from selenium import webdriver
@@ -47,9 +49,9 @@ def is_at_bottom(browser: webdriver.Remote) -> bool:
         "return Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );"
     )
     current_window_height = browser.execute_script("return window.innerHeight;")
-    logger.debug(f"Current scroll position: {current_scroll_position}")
-    logger.debug(f"Max scroll height: {max_scroll_height}")
-    logger.debug(f"Current window height: {current_window_height}")
+    logging.debug(f"Current scroll position: {current_scroll_position}")
+    logging.debug(f"Max scroll height: {max_scroll_height}")
+    logging.debug(f"Current window height: {current_window_height}")
 
     buffer = 10
 
