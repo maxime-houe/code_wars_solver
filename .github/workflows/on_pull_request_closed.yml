@@ -1,0 +1,26 @@
+name: On pull request closed
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches: [ "master", "main" ]
+
+jobs:
+  semantic-release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Python Semantic Release
+      uses: python-semantic-release/python-semantic-release@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

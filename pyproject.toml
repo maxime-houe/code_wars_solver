@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "code_wars_gpt"
-version = "0.1.0"
+version = "0.0.0"
 description = "Use chatGPT to solve code katas from code wars"
 authors = ["Maxime Houé <maxhoue@gmail.com>"]
 readme = "README.md"
@@ -33,12 +33,21 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
+python-semantic-release = "^8.3.0"
 
 [tool.pytest.ini_options]
 python_files = ["*_test.py"]
 markers = [
     "integration",
     "unit",
+]
+
+[tool.semantic_release]
+version_variables = [
+    "app/config.py:__version__",
+]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
 ]
 
 [build-system]

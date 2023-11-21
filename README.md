@@ -43,10 +43,19 @@ If you are using Jetbrains, you can instead run the command in the configuration
 4. Enjoy the [swagger](http://localhost:8000/docs).
 
 ## Contributors
-Run the following command to link the pre-commit hook to your local git repository:
+Run the following command to link the git hooks to your local git repository:
 ```bash
 ln -s ../../hooks/pre-commit .git/hooks/pre-commit
 ln -s ../../hooks/pre-push .git/hooks/pre-push
 chmod +x .git/hooks/pre-commit
 chmod +x .git/hooks/pre-push
 ```
+You also should install dev dependencies with the following command:
+```bash
+poetry install --with dev
+```
+Then, before each commit, you should run 
+```bash
+black .
+```
+This will format the python files accordingly. If not done, the hook will failed.
