@@ -57,32 +57,17 @@ jobs:
 
 #  semantic-release:
 #    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: .
+#    concurrency: release
+#    permissions:
+#      id-token: write
+#      contents: write
 #
-#    env:
-#      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
 #    steps:
-#      - uses: actions/checkout@v3
-#        with:
-#          fetch-depth: 0
-#          persist-credentials: false
+#    - uses: actions/checkout@v3
+#      with:
+#        fetch-depth: 0
 #
-#      - name: github.head_ref
-#        run: echo ${{ github.head_ref }}
-#
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version: 20
-#          registry-url: "https://npm.pkg.github.com"
-#
-#      - name: npm install semantic-release
-#        run: |
-#          npm install semantic-release @semantic-release/exec @semantic-release/git @semantic-release/github @semantic-release/changelog
-#
-#      # Generate semver
-#      - name: Semantic Release dry run
-#        run: GITHUB_EVENT_NAME="push" GITHUB_REF=${{ github.head_ref }} npx semantic-release --dry-run --branches ${{ github.head_ref }}
+#    - name: Python Semantic Release
+#      uses: python-semantic-release/python-semantic-release@master
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
