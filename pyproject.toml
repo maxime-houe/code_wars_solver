@@ -33,12 +33,21 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
+python-semantic-release = "^8.3.0"
 
 [tool.pytest.ini_options]
 python_files = ["*_test.py"]
 markers = [
     "integration",
     "unit",
+]
+
+[tool.semantic_release]
+version_variables = [
+    "config.py:__version__",
+]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
 ]
 
 [build-system]

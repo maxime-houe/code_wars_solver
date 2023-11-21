@@ -8,6 +8,9 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
 
+__version__ = "0.1.0"
+
+
 def configure_log():
     logging.basicConfig(
         level=logging.DEBUG,
@@ -37,7 +40,7 @@ load_local_variables()
 
 class Settings(BaseSettings):
     project_name: str = "code_wars_gpt"
-    version: str = "0.1.0"
+    version: str = __version__
     stage: str = "local"
     location: str = "local"
     environment: str = f"{stage}-{location}"
