@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "code_wars_gpt"
-version = "0.0.0"
+version = "0.1.0"
 description = "Use chatGPT to solve code katas from code wars"
 authors = ["Maxime Houé <maxhoue@gmail.com>"]
 readme = "README.md"
