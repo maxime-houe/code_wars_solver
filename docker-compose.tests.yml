@@ -13,3 +13,8 @@ services:
       - ./reports:/code_wars_gpt/reports
     environment:
       - STAGE=tests
+      - HEADLESS_BROWSER=true
+      - EMAIL=toto@toto.com
+      - PASSWORD=toto
+      - PSEUDO=toto
+      - OPENAI_API_KEY=toto
