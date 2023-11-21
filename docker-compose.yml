@@ -8,7 +8,6 @@ services:
     volumes:
       - ./app:/code_wars_gpt/app
     environment:
-      - STAGE=local
       - HEADLESS_BROWSER=true
     ports:
       - "8000:8000"
