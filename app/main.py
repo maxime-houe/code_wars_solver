@@ -14,9 +14,10 @@ app.include_router(user_router)
 @app.on_event("startup")
 async def startup():
     configure_log()
+    logging.info("▶️ Starting up...")
     get_browser().maximize_window()
     await login()
-    logging.info("Starting up")
+    logging.info("✅ Startup OK")
 
 
 @app.on_event("shutdown")
