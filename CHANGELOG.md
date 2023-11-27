@@ -2,6 +2,66 @@
 
 
 
+## v0.1.1 (2023-11-27)
+
+### Build
+
+* build(deps): bump langchain from 0.0.338 to 0.0.340
+
+Bumps [langchain](https://github.com/langchain-ai/langchain) from 0.0.338 to 0.0.340.
+- [Release notes](https://github.com/langchain-ai/langchain/releases)
+- [Commits](https://github.com/langchain-ai/langchain/compare/v0.0.338...v0.0.340)
+
+---
+updated-dependencies:
+- dependency-name: langchain
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`e0d1feb`](https://github.com/maxime-houe/code_wars_gpt/commit/e0d1feb3679415b779cd99d7f59ce8bdaef6e155))
+
+* build(deps): bump openai from 1.3.4 to 1.3.5
+
+Bumps [openai](https://github.com/openai/openai-python) from 1.3.4 to 1.3.5.
+- [Release notes](https://github.com/openai/openai-python/releases)
+- [Changelog](https://github.com/openai/openai-python/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/openai/openai-python/compare/v1.3.4...v1.3.5)
+
+---
+updated-dependencies:
+- dependency-name: openai
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`9ad3048`](https://github.com/maxime-houe/code_wars_gpt/commit/9ad3048366d4e0cdd623a2a12a2eb8e556e0ceed))
+
+* build(deps): bump pydantic from 2.5.1 to 2.5.2
+
+Bumps [pydantic](https://github.com/pydantic/pydantic) from 2.5.1 to 2.5.2.
+- [Release notes](https://github.com/pydantic/pydantic/releases)
+- [Changelog](https://github.com/pydantic/pydantic/blob/v2.5.2/HISTORY.md)
+- [Commits](https://github.com/pydantic/pydantic/compare/v2.5.1...v2.5.2)
+
+---
+updated-dependencies:
+- dependency-name: pydantic
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`36ab4b3`](https://github.com/maxime-houe/code_wars_gpt/commit/36ab4b36ff7788e76d1a2f83c0ac392e2dc02a9b))
+
+### Fix
+
+* fix: update pytest ([`d894e50`](https://github.com/maxime-houe/code_wars_gpt/commit/d894e5096709d0b117bbc1e9d70fe1156978d01c))
+
+### Refactor
+
+* refactor: remove generate_notes.sh ([`9651201`](https://github.com/maxime-houe/code_wars_gpt/commit/9651201a53db1b6ee2139ecca7e3b3ba70788f1f))
+
+
 ## v0.1.0 (2023-11-21)
 
 ### Build
