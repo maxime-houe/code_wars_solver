@@ -1192,13 +1192,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "1.3.5"
+version = "1.3.7"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.3.5-py3-none-any.whl", hash = "sha256:9437458978fb502e61336c3082e02b09c49feebe0e8516a2b8fb4563e6e4af4e"},
-    {file = "openai-1.3.5.tar.gz", hash = "sha256:163e7ece4af76e961f58b75ea20a42b0d0c2a240c2f81b41a3d1c5962463cdf8"},
+    {file = "openai-1.3.7-py3-none-any.whl", hash = "sha256:e5c51367a910297e4d1cd33d2298fb87d7edf681edbe012873925ac16f95bee0"},
+    {file = "openai-1.3.7.tar.gz", hash = "sha256:18074a0f51f9b49d1ae268c7abc36f7f33212a0c0d08ce11b7053ab2d17798de"},
 ]
 
 [package.dependencies]
@@ -1206,6 +1206,7 @@ anyio = ">=3.5.0,<4"
 distro = ">=1.7.0,<2"
 httpx = ">=0.23.0,<1"
 pydantic = ">=1.9.0,<3"
+sniffio = "*"
 tqdm = ">4"
 typing-extensions = ">=4.5,<5"
 
@@ -2256,4 +2257,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "5cafe7df3fbdde307876e7cd749a109548dde8c699e5a7558cac28f27a8998c7"
+content-hash = "7123834ddadb62017d8c598c3228bd1b619e37a225ae1e8260d9f821f979dd55"
