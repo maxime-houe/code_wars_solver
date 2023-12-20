@@ -1577,13 +1577,13 @@ yaml = ["PyYaml (>=5.2)"]
 
 [[package]]
 name = "python-semantic-release"
-version = "8.5.0"
+version = "8.5.2"
 description = "Automatic Semantic Versioning for Python projects"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "python-semantic-release-8.5.0.tar.gz", hash = "sha256:1c49c08989ba1b14e5ff952eebbfc7704429876dc3eba8f9946f366b9609ada1"},
-    {file = "python_semantic_release-8.5.0-py3-none-any.whl", hash = "sha256:d2388f8a023af53640cc3b10221028dbdc75b1a198218f20261cbbd04e34f483"},
+    {file = "python-semantic-release-8.5.2.tar.gz", hash = "sha256:ca8a9803415cd922baa0348020d683fde8e95295171c970a0296b4a9f8b349f6"},
+    {file = "python_semantic_release-8.5.2-py3-none-any.whl", hash = "sha256:49ab3d1f7be8cce57beebe46313370f68300bcb5b102cfb098bd019e9354d981"},
 ]
 
 [package.dependencies]
@@ -1600,7 +1600,7 @@ shellingham = ">=1.5.0.post1"
 tomlkit = ">=0.10,<1.0"
 
 [package.extras]
-dev = ["pre-commit", "ruff (==0.1.6)", "tox"]
+dev = ["pre-commit", "ruff (==0.1.8)", "tox"]
 docs = ["Sphinx (<=6.0.0)", "furo (>=2023.3.27)", "sphinx-autobuild (==2021.03.14)", "sphinxcontrib-apidoc (==0.3.0)"]
 mypy = ["mypy", "types-requests"]
 test = ["coverage[toml] (>=6,<8)", "pytest (>=7,<8)", "pytest-clarity (>=1.0.1)", "pytest-cov (>=4,<5)", "pytest-lazy-fixture (>=0.6.3,<0.7.0)", "pytest-mock (>=3,<4)", "pytest-pretty (>=1.2.0,<2)", "pytest-xdist (>=2,<4)", "requests-mock (>=1.10.0,<2)", "responses (==0.23.3)", "types-pytest-lazy-fixture (>=0.6.3.3)"]
@@ -2293,4 +2293,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "2354293396759dd3d1e77e9d4c54a66f1fa982ed546c1626c82414896268490f"
+content-hash = "88ddf71bebc7fec5bc5c297f8dd032c344f00a602c0e2d8134b5f85a0df1ca22"
