@@ -39,7 +39,7 @@ load_local_variables()
 
 
 class Settings(BaseSettings):
-    project_name: str = "code_wars_gpt"
+    project_name: str = "code_wars_solver"
     version: str = __version__
     stage: str = "local"
     location: str = "local"

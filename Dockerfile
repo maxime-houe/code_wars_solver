@@ -68,10 +68,10 @@ RUN poetry install --no-interaction --no-ansi
 
 SHELL ["/bin/bash", "-c"]
 RUN pip install --upgrade setuptools
-COPY ./app /code_wars_gpt/app
-COPY ./pyproject.toml /code_wars_gpt
-COPY ./tests /code_wars_gpt/tests
-WORKDIR /code_wars_gpt/app
+COPY ./app /code_wars_solver/app
+COPY ./pyproject.toml /code_wars_solver
+COPY ./tests /code_wars_solver/tests
+WORKDIR /code_wars_solver/app
 
 RUN pytest --version
 CMD uvicorn main:app --host 0.0.0.0 --port 8000 --reload

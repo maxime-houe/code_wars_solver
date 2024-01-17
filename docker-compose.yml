@@ -1,12 +1,12 @@
 version: '3.9'
 services:
   main:
-    image: code_wars_gpt:local
+    image: code_wars_solver:local
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./app:/code_wars_gpt/app
+      - ./app:/code_wars_solver/app
     environment:
       - HEADLESS_BROWSER=true
     ports:
