@@ -8,7 +8,7 @@
             <option value="main" />
           </list>
         </option>
-        <option name="sourceFilePath" value="docker-compose.yml" />
+        <option name="sourceFilePath" value="../code_wars_solver/docker-compose.yml" />
       </settings>
     </deployment>
     <method v="2" />

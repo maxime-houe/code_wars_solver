@@ -1,16 +1,16 @@
 version: '3.9'
 services:
   tests:
-    image: code_wars_gpt:tests
+    image: code_wars_solver:tests
     command: "pytest -v --junitxml=reports/results.xml --cov-report=xml:reports/coverage.xml --cov=."
-    working_dir: "/code_wars_gpt"
+    working_dir: "/code_wars_solver"
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./app:/code_wars_gpt/app
-      - ./tests:/code_wars_gpt/tests
-      - ./reports:/code_wars_gpt/reports
+      - ./app:/code_wars_solver/app
+      - ./tests:/code_wars_solver/tests
+      - ./reports:/code_wars_solver/reports
     environment:
       - STAGE=tests
       - HEADLESS_BROWSER=true
