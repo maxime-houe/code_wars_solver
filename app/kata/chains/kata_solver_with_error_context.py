@@ -1,4 +1,5 @@
-from langchain import LLMChain, PromptTemplate
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
 
 from kata.models import ProgrammingLanguage
 from utils import gpt_35
@@ -44,7 +45,7 @@ def solve_kata_with_error_context(
     code: str,
     errors: str,
 ) -> str:
-    generation = kata_solver_with_error_context(
+    generation = kata_solver_with_error_context.invoke(
         {
             "kata_description": kata_description,
             "programming_language": programming_language.value,

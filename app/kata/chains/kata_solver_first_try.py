@@ -1,4 +1,5 @@
-from langchain import LLMChain, PromptTemplate
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
 
 from kata.models import ProgrammingLanguage
 from utils import gpt_35
@@ -40,7 +41,7 @@ def solve_kata_first_try(
     programming_language: ProgrammingLanguage,
     code: str,
 ) -> str:
-    generation = kata_solver_first_try_chain(
+    generation = kata_solver_first_try_chain.invoke(
         {
             "kata_description": kata_description,
             "programming_language": programming_language.value,
