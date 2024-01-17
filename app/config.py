@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 
 def configure_log():
