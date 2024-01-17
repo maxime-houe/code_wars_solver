@@ -52,10 +52,10 @@ chmod +x .git/hooks/pre-push
 ```
 You also should install dev dependencies with the following command:
 ```bash
-poetry install --with dev
+poetry install --with dev --no-root
 ```
 Then, before each commit, you should run 
 ```bash
 black .
 ```
-This will format the python files accordingly. If not done, the hook will failed.
+This will format the python files accordingly. If not done, the hook will fail.

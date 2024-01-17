@@ -3,8 +3,8 @@ import logging
 from time import sleep
 
 from selenium import webdriver
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
+from langchain_openai import OpenAIEmbeddings
 import tiktoken
 
 from config import get_settings

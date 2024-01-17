@@ -1,4 +1,13 @@
 #!/bin/bash
 
 echo "Running pre-push hook"
-docker-compose -f docker-compose.tests.yml up
+docker-compose -f docker-compose.tests.yml up tests
+
+# Check the exit status of the tests
+if docker-compose -f docker-compose.tests.yml logs tests | tail -n 1 | grep -E "= \d+ passed(, \d+ warnings?)? in \d+\.\d{2}s ="; then
+    echo "Tests passed. Proceeding with push."
+    exit 0
+fi
+
+echo "Tests failed. Aborting push."
+exit 1
