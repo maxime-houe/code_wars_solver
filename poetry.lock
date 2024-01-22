@@ -943,19 +943,19 @@ extended-testing = ["aiosqlite (>=0.19.0,<0.20.0)", "aleph-alpha-client (>=2.15.
 
 [[package]]
 name = "langchain-core"
-version = "0.1.11"
+version = "0.1.13"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = ">=3.8.1,<4.0"
 files = [
-    {file = "langchain_core-0.1.11-py3-none-any.whl", hash = "sha256:69bd66e8604863b0eb1fe4fcd05507be52fdd937dd0849d42eaae80141982e6d"},
-    {file = "langchain_core-0.1.11.tar.gz", hash = "sha256:4ad4b596dbfdbc8393c96d40983b97aec165ab0ba66430beae73e3d879c13a0d"},
+    {file = "langchain_core-0.1.13-py3-none-any.whl", hash = "sha256:da55690feed05a68ce1919254753232170b866ebaaae615f530b73c6e232444c"},
+    {file = "langchain_core-0.1.13.tar.gz", hash = "sha256:80ad9e558f2226ce620cff93b26f8e60a45facd8900acb6e1a18e9dfa769a7eb"},
 ]
 
 [package.dependencies]
 anyio = ">=3,<5"
 jsonpatch = ">=1.33,<2.0"
-langsmith = ">=0.0.63,<0.1.0"
+langsmith = ">=0.0.83,<0.0.84"
 packaging = ">=23.2,<24.0"
 pydantic = ">=1,<3"
 PyYAML = ">=5.3"
@@ -967,30 +967,30 @@ extended-testing = ["jinja2 (>=3,<4)"]
 
 [[package]]
 name = "langchain-openai"
-version = "0.0.2.post1"
+version = "0.0.3"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = ">=3.8.1,<4.0"
 files = [
-    {file = "langchain_openai-0.0.2.post1-py3-none-any.whl", hash = "sha256:ba468b94c23da9d8ccefe5d5a3c1c65b4b9702292523e53acc689a9110022e26"},
-    {file = "langchain_openai-0.0.2.post1.tar.gz", hash = "sha256:f8e78db4a663feeac71d9f036b9422406c199ea3ef4c97d99ff392c93530e073"},
+    {file = "langchain_openai-0.0.3-py3-none-any.whl", hash = "sha256:32d8ae288e212ed47af418ffd216c8af3b8115514bb39127ca9e2910c06fc6b2"},
+    {file = "langchain_openai-0.0.3.tar.gz", hash = "sha256:19720510abcd7d6217a47d551def7779dc001aebbf978bda5c03e0a8c8167ac3"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.1.7,<0.2"
+langchain-core = ">=0.1.13,<0.2"
 numpy = ">=1,<2"
 openai = ">=1.6.1,<2.0.0"
 tiktoken = ">=0.5.2,<0.6.0"
 
 [[package]]
 name = "langsmith"
-version = "0.0.81"
+version = "0.0.83"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = ">=3.8.1,<4.0"
 files = [
-    {file = "langsmith-0.0.81-py3-none-any.whl", hash = "sha256:eb816ad456776ec4c6005ddce8a4c315a1a582ed4d079979888e9f8a1db209b3"},
-    {file = "langsmith-0.0.81.tar.gz", hash = "sha256:5838e5a4bb1939e9794eb3f802f7c390247a847bd603e31442be5be00068e504"},
+    {file = "langsmith-0.0.83-py3-none-any.whl", hash = "sha256:a5bb7ac58c19a415a9d5f51db56dd32ee2cd7343a00825bbc2018312eb3d122a"},
+    {file = "langsmith-0.0.83.tar.gz", hash = "sha256:94427846b334ad9bdbec3266fee12903fe9f5448f628667689d0412012aaf392"},
 ]
 
 [package.dependencies]
@@ -2333,4 +2333,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "2881789e0d29e2f717bca62f7a4f7daba6baedfb586e7a9ec4b4df0b4ce27ea3"
+content-hash = "249011d2e5603be8bf037687ed72e4867a0faecc1acdfa377bc901c1121c67b5"
