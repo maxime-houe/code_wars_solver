@@ -2,6 +2,81 @@
 
 
 
+## v0.1.3 (2024-01-22)
+
+### Build
+
+* build(deps-dev): bump hypothesis from 6.95.0 to 6.96.2
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.95.0 to 6.96.2.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.95.0...hypothesis-python-6.96.2)
+
+---
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`4b339bc`](https://github.com/maxime-houe/code_wars_solver/commit/4b339bc6c55cefce7e8b3f66230100f8ac878a67))
+
+* build(deps): bump uvicorn from 0.25.0 to 0.26.0
+
+Bumps [uvicorn](https://github.com/encode/uvicorn) from 0.25.0 to 0.26.0.
+- [Release notes](https://github.com/encode/uvicorn/releases)
+- [Changelog](https://github.com/encode/uvicorn/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/encode/uvicorn/compare/0.25.0...0.26.0)
+
+---
+updated-dependencies:
+- dependency-name: uvicorn
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f213070`](https://github.com/maxime-houe/code_wars_solver/commit/f213070cb6b6174007f4657aac8562754f463861))
+
+* build(deps): bump langchain-openai from 0.0.2.post1 to 0.0.3
+
+Bumps [langchain-openai](https://github.com/langchain-ai/langchain) from 0.0.2.post1 to 0.0.3.
+- [Release notes](https://github.com/langchain-ai/langchain/releases)
+- [Commits](https://github.com/langchain-ai/langchain/commits)
+
+---
+updated-dependencies:
+- dependency-name: langchain-openai
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`4e73a4f`](https://github.com/maxime-houe/code_wars_solver/commit/4e73a4f5d91bceed6c46157015d6d65fc949a6ba))
+
+* build(deps): bump openai from 1.8.0 to 1.9.0
+
+Bumps [openai](https://github.com/openai/openai-python) from 1.8.0 to 1.9.0.
+- [Release notes](https://github.com/openai/openai-python/releases)
+- [Changelog](https://github.com/openai/openai-python/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/openai/openai-python/compare/v1.8.0...v1.9.0)
+
+---
+updated-dependencies:
+- dependency-name: openai
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`87cda3c`](https://github.com/maxime-houe/code_wars_solver/commit/87cda3cdd0d83907772bb5e03614c47971640e73))
+
+### Ci
+
+* ci: fix semantic-release ([`9bd6422`](https://github.com/maxime-houe/code_wars_solver/commit/9bd64225aebb6f0a3a37515b2f024d022f0ddd9e))
+
+### Fix
+
+* fix: improve prompts ([`9966ffd`](https://github.com/maxime-houe/code_wars_solver/commit/9966ffd163bee9bc1b91f8b2da1967d18d936111))
+
+
 ## v0.1.2 (2024-01-17)
 
 ### Build
