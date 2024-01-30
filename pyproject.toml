@@ -18,7 +18,7 @@ langchain-openai = "^0.0.4"
 openai = "^1.10.0"
 pydantic = "^2.5.3"
 pydantic-settings = "^2.0.3"
-selenium = "^4.16.0"
+selenium = "^4.17.2"
 tiktoken = "^0.5.2"
 uvicorn = "^0.26.0"
 
