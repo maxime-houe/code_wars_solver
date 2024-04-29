@@ -945,13 +945,13 @@ extended-testing = ["aiosqlite (>=0.19.0,<0.20.0)", "aleph-alpha-client (>=2.15.
 
 [[package]]
 name = "langchain-core"
-version = "0.1.35"
+version = "0.1.46"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_core-0.1.35-py3-none-any.whl", hash = "sha256:9d790446ea211f4cb620886081cc5a5723bc9a2dc90af1f6205aded2ee61bb71"},
-    {file = "langchain_core-0.1.35.tar.gz", hash = "sha256:862b8415d4deaf4e06833ef826bcef3614d75c3e7fd82b09b1349cc223f02e9a"},
+    {file = "langchain_core-0.1.46-py3-none-any.whl", hash = "sha256:1c0befcd2665dd4aa153318aa9bf729071644b4c179e491769b8e583b4bf7441"},
+    {file = "langchain_core-0.1.46.tar.gz", hash = "sha256:17c416349f5c7a9808e70e3725749a3a2df5088f1ecca045c883871aa95f9c9e"},
 ]
 
 [package.dependencies]
@@ -960,7 +960,6 @@ langsmith = ">=0.1.0,<0.2.0"
 packaging = ">=23.2,<24.0"
 pydantic = ">=1,<3"
 PyYAML = ">=5.3"
-requests = ">=2,<3"
 tenacity = ">=8.1.0,<9.0.0"
 
 [package.extras]
@@ -968,20 +967,19 @@ extended-testing = ["jinja2 (>=3,<4)"]
 
 [[package]]
 name = "langchain-openai"
-version = "0.0.5"
+version = "0.1.4"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
-python-versions = ">=3.8.1,<4.0"
+python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_openai-0.0.5-py3-none-any.whl", hash = "sha256:93b37dfac274adad65e46d5d6e71411e00c6984bcc5e10f1d6bb58e7944dc01b"},
-    {file = "langchain_openai-0.0.5.tar.gz", hash = "sha256:f317fee5b652949ad96ad7edf8ef7a044a6a3f0cc71d1e12f9d5261789fd68c4"},
+    {file = "langchain_openai-0.1.4-py3-none-any.whl", hash = "sha256:a349ada8724921e380aab03ee312568f5ca99adbc806f6878d79ff9cd1d6d353"},
+    {file = "langchain_openai-0.1.4.tar.gz", hash = "sha256:1a3220464c270d73ea3987010617789adc2099d4d4740b15c7734ab07e1f054b"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.1.16,<0.2"
-numpy = ">=1,<2"
+langchain-core = ">=0.1.46,<0.2.0"
 openai = ">=1.10.0,<2.0.0"
-tiktoken = ">=0.5.2,<0.6.0"
+tiktoken = ">=0.5.2,<1"
 
 [[package]]
 name = "langchain-text-splitters"
@@ -2386,4 +2384,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "757147ef46e2ee3f6b2d417b45030133c5a6595b45546becce576188001501fc"
+content-hash = "70cca99468a915a6d8d11ca1b2cecca02dfbf551d43a778fc84e10213d06abae"
