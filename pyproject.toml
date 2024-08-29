@@ -25,7 +25,7 @@ uvicorn = "^0.27.1"
 
 [tool.poetry.group.tests.dependencies]
 hypothesis = "^6.99.2"
-pytest = "^8.0.0"
+pytest = "^8.3.2"
 pytest-cov = "^4.0.0"
 
 
