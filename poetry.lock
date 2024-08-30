@@ -800,13 +800,13 @@ socks = ["socksio (==1.*)"]
 
 [[package]]
 name = "hypothesis"
-version = "6.99.2"
+version = "6.111.2"
 description = "A library for property-based testing"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "hypothesis-6.99.2-py3-none-any.whl", hash = "sha256:f277f6ccb074f39d51c7f32ba5a0ff640dba9b71ef69ea1e1e09b6f7c25302f5"},
-    {file = "hypothesis-6.99.2.tar.gz", hash = "sha256:24453b1a86151be83d26e81834e29022b3e3f0fc5d71275cc3d096649a13c53c"},
+    {file = "hypothesis-6.111.2-py3-none-any.whl", hash = "sha256:055e8228958e22178d6077e455fd86a72044d02dac130dbf9c8b31e161b9809c"},
+    {file = "hypothesis-6.111.2.tar.gz", hash = "sha256:0496ad28c7240ee9ba89fcc7fb1dc74e89f3e40fbcbbb5f73c0091558dec8e6e"},
 ]
 
 [package.dependencies]
@@ -814,10 +814,10 @@ attrs = ">=22.2.0"
 sortedcontainers = ">=2.1.0,<3.0.0"
 
 [package.extras]
-all = ["backports.zoneinfo (>=0.2.1)", "black (>=19.10b0)", "click (>=7.0)", "crosshair-tool (>=0.0.50)", "django (>=3.2)", "dpcontracts (>=0.4)", "hypothesis-crosshair (>=0.0.1)", "lark (>=0.10.1)", "libcst (>=0.3.16)", "numpy (>=1.17.3)", "pandas (>=1.1)", "pytest (>=4.6)", "python-dateutil (>=1.4)", "pytz (>=2014.1)", "redis (>=3.0.0)", "rich (>=9.0.0)", "tzdata (>=2024.1)"]
+all = ["backports.zoneinfo (>=0.2.1)", "black (>=19.10b0)", "click (>=7.0)", "crosshair-tool (>=0.0.70)", "django (>=3.2)", "dpcontracts (>=0.4)", "hypothesis-crosshair (>=0.0.13)", "lark (>=0.10.1)", "libcst (>=0.3.16)", "numpy (>=1.17.3)", "pandas (>=1.1)", "pytest (>=4.6)", "python-dateutil (>=1.4)", "pytz (>=2014.1)", "redis (>=3.0.0)", "rich (>=9.0.0)", "tzdata (>=2024.1)"]
 cli = ["black (>=19.10b0)", "click (>=7.0)", "rich (>=9.0.0)"]
 codemods = ["libcst (>=0.3.16)"]
-crosshair = ["crosshair-tool (>=0.0.50)", "hypothesis-crosshair (>=0.0.1)"]
+crosshair = ["crosshair-tool (>=0.0.70)", "hypothesis-crosshair (>=0.0.13)"]
 dateutil = ["python-dateutil (>=1.4)"]
 django = ["django (>=3.2)"]
 dpcontracts = ["dpcontracts (>=0.4)"]
@@ -2438,4 +2438,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "80e631731c0247b0865b2ca2b90a56278ba2d306fdcc9563f40089764794b672"
+content-hash = "8001e8b8946c07b98a025c307852efed4deaebebe63a59bff320c6917638e5e2"
