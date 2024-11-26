@@ -20,7 +20,7 @@ pydantic = "^2.9.0"
 pydantic-settings = "^2.6.1"
 selenium = "^4.24.0"
 tiktoken = "^0.5.2"
-uvicorn = "^0.32.0"
+uvicorn = "^0.32.1"
 
 
 [tool.poetry.group.tests.dependencies]
