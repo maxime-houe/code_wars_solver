@@ -815,13 +815,13 @@ socks = ["socksio (==1.*)"]
 
 [[package]]
 name = "hypothesis"
-version = "6.119.3"
+version = "6.122.4"
 description = "A library for property-based testing"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "hypothesis-6.119.3-py3-none-any.whl", hash = "sha256:dff13689c4ceb0d84d92e0309fca3ccc1b547ac30552037c712a9080eb75cd05"},
-    {file = "hypothesis-6.119.3.tar.gz", hash = "sha256:1403676d95bc9f118a30ce2c97fcbdd28dd99f3a1ffe3456970d98a56b370f36"},
+    {file = "hypothesis-6.122.4-py3-none-any.whl", hash = "sha256:77f6799115d68a4b95c06d3b28ba2cfe40de6d5e656ad9b751232b25beba790d"},
+    {file = "hypothesis-6.122.4.tar.gz", hash = "sha256:edbcc1b36eea8159e4df9afa669ae8570416f96df5591bec7ad561f2dd0d4931"},
 ]
 
 [package.dependencies]
@@ -829,10 +829,10 @@ attrs = ">=22.2.0"
 sortedcontainers = ">=2.1.0,<3.0.0"
 
 [package.extras]
-all = ["black (>=19.10b0)", "click (>=7.0)", "crosshair-tool (>=0.0.77)", "django (>=4.2)", "dpcontracts (>=0.4)", "hypothesis-crosshair (>=0.0.18)", "lark (>=0.10.1)", "libcst (>=0.3.16)", "numpy (>=1.19.3)", "pandas (>=1.1)", "pytest (>=4.6)", "python-dateutil (>=1.4)", "pytz (>=2014.1)", "redis (>=3.0.0)", "rich (>=9.0.0)", "tzdata (>=2024.2)"]
+all = ["black (>=19.10b0)", "click (>=7.0)", "crosshair-tool (>=0.0.78)", "django (>=4.2)", "dpcontracts (>=0.4)", "hypothesis-crosshair (>=0.0.18)", "lark (>=0.10.1)", "libcst (>=0.3.16)", "numpy (>=1.19.3)", "pandas (>=1.1)", "pytest (>=4.6)", "python-dateutil (>=1.4)", "pytz (>=2014.1)", "redis (>=3.0.0)", "rich (>=9.0.0)", "tzdata (>=2024.2)"]
 cli = ["black (>=19.10b0)", "click (>=7.0)", "rich (>=9.0.0)"]
 codemods = ["libcst (>=0.3.16)"]
-crosshair = ["crosshair-tool (>=0.0.77)", "hypothesis-crosshair (>=0.0.18)"]
+crosshair = ["crosshair-tool (>=0.0.78)", "hypothesis-crosshair (>=0.0.18)"]
 dateutil = ["python-dateutil (>=1.4)"]
 django = ["django (>=4.2)"]
 dpcontracts = ["dpcontracts (>=0.4)"]
@@ -2651,4 +2651,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "fc39e9c5d7a1d361d72be47cadb8f2ad7f8c88416f68ce2dbe576f4d75d458f3"
+content-hash = "582ba29f55cbd5ae76314c1b0ad5c06944681ae09c3ff41b580ccea158c07df6"
